@@ -84,4 +84,4 @@ while let Some(event) = room_events.recv().await {
 
 ## License
 
-This project is licensed under the Apache-2.0 License. See [LICENSE](LICENSE) for details.
+This is a private repository. All rights reserved. Unauthorized use, distribution, or modification of this code is strictly prohibited.
