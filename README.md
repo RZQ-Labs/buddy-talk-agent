@@ -46,6 +46,31 @@ cargo run --release
 
 The service will connect to the specified LiveKit room and begin logging audio frames as they are received.
 
+## Development with Docker
+
+You can use the provided `Dockerfile` for a development environment with hot-reloading via [cargo-watch](https://crates.io/crates/cargo-watch).
+
+### Build the Docker image
+
+```sh
+docker build -t buddytalk-worker-dev .
+```
+
+### Run the development container
+
+```sh
+docker run --rm -it \
+  -v $(pwd):/app \
+  -v cargo-cache:/usr/local/cargo/registry \
+  --env-file .env \
+  -p 3000:3000 \
+  buddytalk-worker-dev
+```
+
+- The container will watch for file changes and automatically rebuild/restart the app.
+- Your `.env` file will be used for environment variables.
+- Port 3000 is exposed by default (adjust as needed).
+
 ## Usage Example
 
 The core logic is in `src/main.rs`:
